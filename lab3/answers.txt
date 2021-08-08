@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: It takes longest time for the sort1 to sort the random50000.txt
+
+sort2 uses: Merge Sort
+
+How do you know?: Time that it takes to sort the list for different sizes does not differ much and this is similar behavior of merge sort
+
+sort3 uses: Selection Sort
+
+How do you know?: Takes more time to sort the sorted list than sort1
