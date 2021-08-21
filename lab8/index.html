@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            var mltpl_correct_answers = ['Blue', 'Red', 'Green'];
+            document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('click', function(e) {
+                    var target = e.target;
+
+                    if (target.id == "mltpl-answer")
+                    {
+                        if (mltpl_correct_answers.includes(target.textContent))
+                        {
+                            target.style.backgroundColor = "#00FF00";
+                        }
+                        else
+                        {
+                            target.style.backgroundColor = "#FF0000";
+                        }
+                        if (target.nextElementSibling != null)
+                        {
+                            target.nextElementSibling.style.visibility = 'unset';
+                        }
+                    }
+
+                    if (target.id == "submit-btn")
+                    {
+                        let input = document.querySelector("#answer-input");
+                        let answer_text = document.querySelector("#free-response-text");
+
+                        if(input.value.toLowerCase() == 'vienna')
+                        {
+                            input.style.backgroundColor = "#00FF00";
+                            answer_text.style.visibility = 'unset';
+                            answer_text.value = "Correct";
+                        }
+                        else
+                        {
+                            input.style.backgroundColor = "#FF0000";
+                            answer_text.style.visibility = 'unset';
+                            answer_text.innerText = "Incorrect";
+                        }
+                    }
+                })
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+
+                <h3>
+                    What are the flag colors of Azerbaijan
+                </h3>
+                <div class="answer-options">
+                    <div class="answer-btn">
+                        <button id="mltpl-answer">Yellow</button>
+                        <p style="visibility: hidden;">Incorrect</p>
+                    </div>
+                    <div class="answer-btn">
+                        <button id="mltpl-answer">Red</button>
+                        <p style="visibility: hidden;">Correct</p>
+                    </div>
+                    <div class="answer-btn">
+                        <button id="mltpl-answer">White</button>
+                        <p style="visibility: hidden;">Incorrect</p>
+                    </div>
+                    <div class="answer-btn">
+                        <button id="mltpl-answer">Blue</button>
+                        <p style="visibility: hidden;">Correct</p>
+                    </div>
+                    <div class="answer-btn">
+                        <button id="mltpl-answer">Green</button>
+                        <p style="visibility: hidden;">Correct</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+
+                <h3>What is the capital of Austria?</h3>
+
+                <div class="free-response">
+                    <form class="answer-form">
+                        <input autofocus id="answer-input" type="text">
+                    </form>
+
+                    <button id="submit-btn">Sumbit</button>
+
+                </div>
+                <p id="free-response-text" style="visibility: hidden;">Correct</p>
+
+            </div>
+
+        </div>
+    </body>
+</html>
